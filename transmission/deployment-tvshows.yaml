@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission-tvshows
+  namespace: transmission
+  labels:
+    app: transmission-tvshows
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transmission-tvshows
+  template:
+    metadata:
+      labels:
+        app: transmission-tvshows
+    spec:
+      volumes:
+        - name: data
+          hostPath:
+            path: /mnt/medias/Videos/Download-tvshows
+            type: Directory
+        - name: config
+          hostPath:
+            path: /home/chevalier/Workspace/k3s/transmission/config-tvshows
+            type: Directory
+      containers:
+      - name: transmission
+        image: linuxserver/transmission:latest
+        ports:
+        - containerPort: 9091
+        volumeMounts:
+         - name: data
+           mountPath: /downloads
+         - name: config
+           mountPath: /config

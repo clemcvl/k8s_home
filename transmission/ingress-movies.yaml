@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: transmission-movies-ingress
+  namespace: transmission
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+      #traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - host: transmission-movies.playk8s.live
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: transmission-movies-service
+          servicePort: 9091

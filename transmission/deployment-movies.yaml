@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission-movies
+  namespace: transmission
+  labels:
+    app: transmission-movies
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transmission-movies
+  template:
+    metadata:
+      labels:
+        app: transmission-movies
+    spec:
+      volumes:
+        - name: data
+          hostPath:
+            path: /mnt/medias/Videos/Download
+            type: Directory
+        - name: config
+          hostPath:
+            path: /home/chevalier/Workspace/k3s/transmission/config
+            type: Directory
+      containers:
+      - name: transmission
+        image: linuxserver/transmission
+        ports:
+        - containerPort: 9091
+        volumeMounts:
+         - name: data
+           mountPath: /downloads
+         - name: config
+           mountPath: /config
