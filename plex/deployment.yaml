@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  namespace: plex
+  labels:
+    app: plex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      volumes:
+        - name: data
+          hostPath:
+            path: /mnt/medias
+            type: Directory
+        - name: config
+          hostPath:
+            path: /home/chevalier/Workspace/k3s/plex/config
+            type: Directory
+      containers:
+      - name: plex
+        image: plexinc/pms-docker:latest
+        ports:
+        - containerPort: 32400
+        volumeMounts:
+         - name: data
+           mountPath: /medias
+         - name: config
+           mountPath: /config
