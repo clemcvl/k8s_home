@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: gorunner-ingress
+  namespace: gorunner
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - host: gorunner.playk8s.live
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: gorunner-svc
+          servicePort: 9090

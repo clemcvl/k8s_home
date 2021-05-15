@@ -1,0 +1,16 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mysite-nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - host: test.home.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mysite-nginx-service
+          servicePort: 80

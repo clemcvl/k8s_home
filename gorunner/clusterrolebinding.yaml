@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+# This cluster role binding allows anyone in the "manager" group to read secrets in any namespace.
+kind: ClusterRoleBinding
+metadata:
+  name: gorunner-clusterrolebinding
+subjects:
+- kind: ServiceAccount
+  name: gorunner-sa # Name is case sensitive
+  namespace: gorunner
+roleRef:
+  kind: ClusterRole
+  name: gorunner-clusterrole
+  apiGroup: rbac.authorization.k8s.io
