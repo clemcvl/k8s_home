@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goclient
+  namespace: goclient
+  labels:
+    app: goclient
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goclient
+  template:
+    metadata:
+      labels:
+        app: goclient
+    spec:
+      containers:
+      - name: goclient
+        image:  clementcvl/goclient:frommacos
+        ports:
+        - containerPort: 80
+      serviceAccountName: goclient-sa
