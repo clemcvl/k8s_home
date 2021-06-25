@@ -22,7 +22,7 @@ spec:
             type: Directory
         - name: config
           hostPath:
-            path: /home/chevalier/Workspace/k3s/transmission/config-tvshows
+            path: /home/chevalier/Workspace/k8s_home/components/transmission/config-tvshows
             type: Directory
       containers:
       - name: transmission

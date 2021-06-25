@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: version-discover-ingress
+  namespace: version-discover
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - host: version-discover.playk8s.live
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: version-discover-svc
+          servicePort: 8080
