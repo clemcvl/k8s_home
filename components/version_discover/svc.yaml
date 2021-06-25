@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: version-discover-svc
+  namespace: version-discover
+spec:
+  selector:
+    app: version-discover
+  ports:
+    - protocol: TCP
+      port: 8080

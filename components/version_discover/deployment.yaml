@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: version-discover
+  namespace: version-discover
+  labels:
+    app: version-discover
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: version-discover
+  template:
+    metadata:
+      labels:
+        app: version-discover
+    spec:
+      serviceAccountName: version-discover-sa
+      automountServiceAccountToken: true
+      containers:
+      - name: version-discover
+        image: version_discover:0.0.1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080

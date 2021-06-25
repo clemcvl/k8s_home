@@ -22,7 +22,7 @@ spec:
             type: Directory
         - name: config
           hostPath:
-            path: /home/chevalier/Workspace/k3s/plex/config
+            path: /home/chevalier/Workspace/k8s_home/components/plex/config
             type: Directory
       containers:
       - name: plex
