@@ -19,7 +19,7 @@ spec:
       automountServiceAccountToken: true
       containers:
       - name: version-discover
-        image: version_discover:0.0.1
+        image: version_discover:0.1.0
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
