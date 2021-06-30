@@ -29,6 +29,9 @@ spec:
         image: plexinc/pms-docker:latest
         ports:
         - containerPort: 32400
+        env:
+        - name: ADVERTISE_IP
+          value: "http://192.168.1.2:32400/"
         volumeMounts:
          - name: data
            mountPath: /medias
