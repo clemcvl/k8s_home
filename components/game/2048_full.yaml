@@ -33,7 +33,7 @@ metadata:
   namespace: game-2048
 spec:
   selector:
-    app: app-2048
+    app.kubernetes.io/name: app-2048
   ports:
     - protocol: TCP
       port: 80
