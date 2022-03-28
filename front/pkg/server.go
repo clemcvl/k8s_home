@@ -13,11 +13,16 @@ type Component struct {
 }
 
 type DataPasser struct {
-	state Component
+	state []Component
 }
 
 func StartServer() {
-	passer := &DataPasser{state: Component{Name: "toto"}}
+	var myMapSlice []Component
+	m1 := Component{Name: "toto"}
+	m2 := Component{Name: "titi"}
+
+	myMapSlice = append(myMapSlice, m1, m2)
+	passer := &DataPasser{state: myMapSlice}
 	log.Println("setuping routes")
 	setupRoutes(passer)
 	log.Println("starting server")
