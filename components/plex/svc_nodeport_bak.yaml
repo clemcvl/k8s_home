@@ -4,6 +4,7 @@ metadata:
   name: my-service
   namespace: plex
 spec:
+  clusterIP: 10.43.202.220
   ports:
   - nodePort: 32400
     port: 32400
@@ -11,3 +12,4 @@ spec:
     app.kubernetes.io/instance: plex
     app.kubernetes.io/name: plex
   type: NodePort
+

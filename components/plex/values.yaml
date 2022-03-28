@@ -1,0 +1,61 @@
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "traefik"
+    hosts:
+    - host: "plex.playk8s.live"
+      paths:
+      - path: /
+        backend:
+          serviceName: plex
+          servicePort: 32400
+
+image:
+  tag: v1.25.6.5577-c8bd13540
+
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  ADVERTISE_IP: "http://192.168.1.2:32400"
+  # ADVERTISE_IP: "http://plex.playk8s.live:32400" # Remote access won't work if vpn is up
+  # ADVERTISE_IP: "http://plex.playk8s.live/"
+
+persistence:
+  config:
+    enabled: true
+    type: hostPath
+    mountPath:  /config
+    hostPath: /home/chevalier/Workspace/k8s_home/components/plex/config
+  data:
+    enabled: true
+    type: pvc
+    storageClass: nfs
+    accessMode: "ReadWriteMany"
+    size: 400Gi
+
+service:
+  main:
+    primary: true
+    ports:
+      http:
+        port: 32400
+  dnla-tcp:
+    enabled: true
+    type: NodePort
+    ports:
+      dnla-tcp:
+        enabled: true
+        port: 32469
+        protocol: TCP
+        targetPort: 32469
+    externalTrafficPolicy: Local
+  dnla-udp:
+    enabled: true
+    type: NodePort
+    ports:
+      dnla-udp:
+        enabled: true
+        port: 1900
+        protocol: TCP
+        targetPort: 1900
+    externalTrafficPolicy: Local

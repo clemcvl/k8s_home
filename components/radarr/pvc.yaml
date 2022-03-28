@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: radarr-pvc
+spec:
+  storageClassName: ""
+  selector:
+    matchLabels:
+      type: "nas-video"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 800Gi
