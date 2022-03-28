@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: argocd-server
-          servicePort: 32400
+          servicePort: 80
