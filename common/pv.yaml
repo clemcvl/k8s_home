@@ -1,0 +1,17 @@
+## media.persistentvolume.yml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: "medias"
+  labels:
+    type: "local"
+spec:
+  storageClassName: "manual"
+  capacity:
+    storage: "500Gi"
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/k8s_home/medias"
+
