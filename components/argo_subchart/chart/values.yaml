@@ -1,11 +1,11 @@
----
-quarkus:
-  build:
-    enabled: false
-  deploy:
-    route:
-      tls:
-        enabled: false
-    replicas: 1
+kubernetes:
+  host: https://kubernetes.default
+
+helloworld:
+  namespace: default
   image:
-    name: quay.io/ablock/gitops-helm-quarkus
+    name: tutum/hello-world
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    ingressClass: internal-ingress
