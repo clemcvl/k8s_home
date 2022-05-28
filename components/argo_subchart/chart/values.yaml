@@ -1,0 +1,11 @@
+---
+quarkus:
+  build:
+    enabled: false
+  deploy:
+    route:
+      tls:
+        enabled: false
+     replicas: 1
+  image:
+    name: quay.io/ablock/gitops-helm-quarkus
