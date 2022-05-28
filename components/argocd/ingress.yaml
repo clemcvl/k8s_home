@@ -1,5 +1,5 @@
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-ingress
@@ -8,10 +8,13 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: argocd.playk8s.live
+  - host: argocd.myplayk8s.live
     http:
       paths:
       - path: /
         backend:
-          serviceName: argocd-server
-          servicePort: 80
+          service:
+            name: argocd-server
+            port: 
+              number: 80
+        pathType: Prefix

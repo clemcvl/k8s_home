@@ -9,7 +9,7 @@ metadata:
       #traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
-  - host: transmission-tvshows.playk8s.live
+  - host: transmission-tvshows.myplayk8s.live
     http:
       paths:
       - path: /
