@@ -1,0 +1,58 @@
+pod-gateway:
+  routed_namespaces:
+    - vpn-tester
+    - transmission
+
+  settings:
+    NOT_ROUTED_TO_GATEWAY_CIDRS: "10.42.0.0/16 10.43.0.0/16"
+
+
+  addons:
+    vpn:
+      enabled: true
+      # You might use `openvpn` or `wireguard`
+      type: openvpn
+      # VPN settings stored in secret `vpnConfig`. The secret mus have a key
+      # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
+      ####### Secret added manually #######
+      # kubectl create secret generic openvpn --from-file=/tmp/vpnConfigfile
+      configFileSecret: openvpn
+
+      livenessProbe:
+        exec:
+          # In the example bellow the VPN org is not a FAI - change appropiatly
+          command:
+            - sh
+            - -c
+            - if [ $(wget -q -O- https://ipinfo.io/org) | grep -vi 'bouygues' ]; then exit 0; else exit $?; fi
+        initialDelaySeconds: 40
+        periodSeconds: 300 # free ipinfo plan == 50k req/months 
+        failureThreshold: 3
+
+      networkPolicy:
+        enabled: false ## To be check if working properly
+
+        # egress:
+        #   - to:
+        #     - ipBlock:
+        #         cidr: 0.0.0.0/0
+        #     ports:
+        #     # VPN traffic port - change if your provider uses a different port
+        #     - port: 443
+        #       protocol: UDP
+        #   - to:
+        #       # Allow traffic within K8S - change if your K8S cluster uses a different CIDR
+        #     - ipBlock:
+        #         cidr: 10.0.0.0/8
+
+  settings:
+    # tun0 for openvpn, wg0 for wireguard
+    VPN_INTERFACE: tun0
+    # Prevent non VPN traffic to leave the gateway
+    VPN_BLOCK_OTHER_TRAFFIC: false
+    # If VPN_BLOCK_OTHER_TRAFFIC is true, allow VPN traffic over this port
+    VPN_TRAFFIC_PORT: 443
+    # Don't touch that stuffs !! 
+    NOT_ROUTED_TO_GATEWAY_CIDRS: "10.42.0.0/16 10.43.0.0/16 192.168.1.0/24"
+    # change if your K8S cluster or home network uses a different CIDR
+    VPN_LOCAL_CIDRS: "10.0.0.0/8 192.168.1.0/24"
