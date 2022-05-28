@@ -1,4 +1,4 @@
-flaresolver:
+flaresolverr:
   ingress:
     main:
       enabled: true
