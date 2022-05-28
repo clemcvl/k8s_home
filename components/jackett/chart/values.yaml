@@ -1,0 +1,28 @@
+jackett:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+      - host: "jackett.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: jackett
+            servicePort: 9117
+
+  image:
+    tag: latest
+
+  persistence:
+    config:
+      enabled: true
+      type: hostPath
+      mountPath:  /config
+      hostPath: /home/chevalier/Workspace/k8s_home/components/jackett/config
+    data:
+      enabled: true
+      type: pvc
+      storageClass: nfs
+      accessMode: "ReadWriteMany"
+      size: 400Gi
