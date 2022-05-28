@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: plex.playk8s.live
+  - host: plex.myplayk8s.live
     http:
       paths:
       - path: /

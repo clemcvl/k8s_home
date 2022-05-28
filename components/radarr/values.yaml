@@ -3,7 +3,7 @@ ingress:
     enabled: true
     ingressClassName: "traefik"
     hosts:
-    - host: "radarr.playk8s.live"
+    - host: "radarr.myplayk8s.live"
       paths:
       - path: /
         backend:
