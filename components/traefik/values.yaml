@@ -1,0 +1,15 @@
+additionalArguments:
+- --providers.kubernetesingress.ingressclass=traefik
+- --providers.kubernetesingress.ingressendpoint.ip=127.0.0.1
+ingressClass:
+  enabled: true
+ports:
+  web:
+    expose: true
+    exposedPort: 80
+    nodePort: 30000
+    port: 8000
+    protocol: TCP
+service:
+  enabled: true
+  type: NodePort
