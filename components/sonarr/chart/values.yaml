@@ -1,29 +1,30 @@
-ingress:
-  main:
-    enabled: true
-    ingressClassName: "traefik"
-    hosts:
-    - host: "sonarr.myplayk8s.live"
-      paths:
-      - path: /
-        backend:
-          serviceName: sonarr
-          servicePort: 8989
+sonarr:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+      - host: "sonarr.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: sonarr
+            servicePort: 8989
 
-image:
-  tag: v3.0.7.1477
+  image:
+    tag: v3.0.7.1477
 
 
-persistence:
-  config:
-    enabled: true
-    type: hostPath
-    mountPath:  /config
-    hostPath: /home/chevalier/Workspace/k8s_home/components/sonarr/config
-  data:
-    enabled: true
-    type: pvc
-    storageClass: nfs
-    accessMode: "ReadWriteMany"
-    size: 400Gi
+  persistence:
+    config:
+      enabled: true
+      type: hostPath
+      mountPath:  /config
+      hostPath: /home/chevalier/Workspace/k8s_home/components/sonarr/config
+    data:
+      enabled: true
+      type: pvc
+      storageClass: nfs
+      accessMode: "ReadWriteMany"
+      size: 400Gi
 
