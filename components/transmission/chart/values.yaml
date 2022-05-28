@@ -1,37 +1,38 @@
-ingress:
-  main:
-    enabled: true
-    ingressClassName: "traefik"
-    hosts:
-    - host: "transmission.myplayk8s.live"
-      paths:
-      - path: /
-        backend:
-          serviceName: transmission
-          servicePort: 9091
+transmission:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+      - host: "transmission.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: transmission
+            servicePort: 9091
 
-# image:
-#   tag: v3.0.7.1477
+  # image:
+  #   tag: v3.0.7.1477
 
-env:
-  TZ: UTC
-  TRANSMISSION_WEB_HOME: /web
-  TRANSMISSION_DOWNLOAD_DIR: /data/downloads/complete
-  TRANSMISSION_INCOMPLETE_DIR_ENABLED: false
-  TRANSMISSION_INCOMPLETE_DIR: /data/downloads/incomplete
-  TRANSMISSION_WATCH_DIR_ENABLED: false
-  TRANSMISSION_WATCH_DIR: /watch
+  env:
+    TZ: UTC
+    TRANSMISSION_WEB_HOME: /web
+    TRANSMISSION_DOWNLOAD_DIR: /data/downloads/complete
+    TRANSMISSION_INCOMPLETE_DIR_ENABLED: false
+    TRANSMISSION_INCOMPLETE_DIR: /data/downloads/incomplete
+    TRANSMISSION_WATCH_DIR_ENABLED: false
+    TRANSMISSION_WATCH_DIR: /watch
 
-persistence:
-  config:
-    enabled: true
-    type: hostPath
-    mountPath:  /config
-    hostPath: /home/chevalier/Workspace/k8s_home/components/transmission/config
-  data:
-    enabled: true
-    type: pvc
-    storageClass: nfs
-    accessMode: "ReadWriteMany"
-    size: 400Gi
+  persistence:
+    config:
+      enabled: true
+      type: hostPath
+      mountPath:  /config
+      hostPath: /home/chevalier/Workspace/k8s_home/components/transmission/config
+    data:
+      enabled: true
+      type: pvc
+      storageClass: nfs
+      accessMode: "ReadWriteMany"
+      size: 400Gi
 
