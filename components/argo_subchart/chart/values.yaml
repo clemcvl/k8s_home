@@ -2,7 +2,7 @@ kubernetes:
   host: https://kubernetes.default
 
 helloworld:
-  namespace: default
+  namespace: test
   image:
     name: tutum/hello-world
     tag: latest
