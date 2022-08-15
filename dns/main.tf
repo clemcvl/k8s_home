@@ -63,6 +63,7 @@ variable "records" {
     "transmission",
     "version-discover",
     "game",
-    "flaresolver"
+    "flaresolver",
+    "iptvparser"
   ]
 }

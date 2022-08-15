@@ -1,5 +1,4 @@
-
-app:
+iptvparser:
   ingress:
     enabled: true
     port: 8080

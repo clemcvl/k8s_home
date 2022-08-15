@@ -8,3 +8,4 @@ dependencies:
   - name: generic-service
     version: ~1.1.0
     repository: https://helm.nano-byte.net
+    alias: iptvparser
