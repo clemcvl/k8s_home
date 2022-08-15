@@ -7,4 +7,4 @@ iptvparser:
     - "iptvparser.myplayk8s.live"
   image:
     repository: iptvparser
-    tag: v0
+    tag: v0.1
