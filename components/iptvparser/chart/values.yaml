@@ -2,7 +2,9 @@ iptvparser:
   ingress:
     enabled: true
     port: 8080
-    class: "traefik"  
+    class: "traefik"
+    domains: 
+    - "iptvparser.myplayk8s.live"
   image:
     repository: iptvparser
     tag: v0
