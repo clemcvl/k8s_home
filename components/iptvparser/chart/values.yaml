@@ -1,0 +1,9 @@
+
+app:
+  ingress:
+    enabled: true
+    port: 8080
+    class: "traefik"  
+  image:
+    repository: iptvparser
+    tag: v0
