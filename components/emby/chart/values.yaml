@@ -1,0 +1,38 @@
+emby:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+      - host: "emby.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: emby
+            servicePort: 8080
+
+  # image:
+  #   tag: v3.0.7.1477
+
+  # env:
+  #   TZ: UTC
+  #   emby_WEB_HOME: /web
+  #   emby_DOWNLOAD_DIR: /data/downloads/complete
+  #   emby_INCOMPLETE_DIR_ENABLED: false
+  #   emby_INCOMPLETE_DIR: /data/downloads/incomplete
+  #   emby_WATCH_DIR_ENABLED: false
+  #   emby_WATCH_DIR: /watch
+
+  # persistence:
+  #   config:
+  #     enabled: true
+  #     type: hostPath
+  #     mountPath:  /config
+  #     hostPath: /home/chevalier/Workspace/k8s_home/components/emby/config
+  #   data:
+  #     enabled: true
+  #     type: pvc
+  #     storageClass: nfs
+  #     accessMode: "ReadWriteMany"
+  #     size: 400Gi
+
