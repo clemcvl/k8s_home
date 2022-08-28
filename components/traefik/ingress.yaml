@@ -1,9 +1,9 @@
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: traefik-ingress
-  namespace: kube-system
+  namespace: traefik
   annotations:
     kubernetes.io/ingress.class: "traefik"
 spec:
@@ -12,6 +12,9 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: traefik-dashboard-svc
-          servicePort: 8080
+          service:
+            name: traefik-dashboard-svc
+            port: 
+              number: 9000
