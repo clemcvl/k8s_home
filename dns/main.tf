@@ -64,6 +64,7 @@ variable "records" {
     "version-discover",
     "game",
     "flaresolver",
-    "iptvparser"
+    "iptvparser",
+    "emby",
   ]
 }
