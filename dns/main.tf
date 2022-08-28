@@ -66,5 +66,6 @@ variable "records" {
     "flaresolver",
     "iptvparser",
     "emby",
+    "kodi",
   ]
 }

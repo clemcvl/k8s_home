@@ -10,3 +10,7 @@
 #           backend:
 #             serviceName: kodi
 #             servicePort: 8080
+kodi-headless:
+  persistence:
+    config:
+      enabled: true
