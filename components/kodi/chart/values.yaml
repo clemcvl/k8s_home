@@ -1,29 +1,7 @@
-# kodi:
-#   ingress:
-#     main:
-#       enabled: true
-#       ingressClassName: "traefik"
-#       hosts:
-#       - host: "kodi.myplayk8s.live"
-#         paths:
-#         - path: /
-#           backend:
-#             serviceName: kodi
-#             servicePort: 8080
-kodi-headless:
-  persistence:
-    config:
-      enabled: false
-
-  ingress:
-    main:
-      # enableFixedMiddlewares: false
-      enabled: true
-      ingressClassName: "traefik"
-      hosts:
-      - host: "kodi.myplayk8s.live"
-        paths:
-        - path: /
-          backend:
-            serviceName: kodi-kodi-headless
-            servicePort: 10148
+image:
+    repository: linuxserver/kodi-headless
+    tag: latest
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  host: kodi.myplayk8s.live

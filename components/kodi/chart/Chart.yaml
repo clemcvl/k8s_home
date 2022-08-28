@@ -5,6 +5,6 @@ type: application
 version: 1.0.0
 appVersion: "1.0.0"
 dependencies:
-- name: kodi-headless
-  version: 2.0.25
-  repository: https://charts.truecharts.org
+- name: onechart
+  version: 0.39.0
+  repository: https://chart.onechart.dev
