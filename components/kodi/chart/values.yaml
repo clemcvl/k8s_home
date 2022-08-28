@@ -1,7 +1,8 @@
-image:
+onechart: 
+  image:
     repository: linuxserver/kodi-headless
     tag: latest
-ingress:
-  annotations:
-    kubernetes.io/ingress.class: traefik
-  host: kodi.myplayk8s.live
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    host: kodi.myplayk8s.live
