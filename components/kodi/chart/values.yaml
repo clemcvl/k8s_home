@@ -6,3 +6,4 @@ onechart:
     annotations:
       kubernetes.io/ingress.class: traefik
     host: kodi.myplayk8s.live
+  containerPort: 8080
