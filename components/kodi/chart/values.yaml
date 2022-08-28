@@ -1,0 +1,12 @@
+# kodi:
+#   ingress:
+#     main:
+#       enabled: true
+#       ingressClassName: "traefik"
+#       hosts:
+#       - host: "kodi.myplayk8s.live"
+#         paths:
+#         - path: /
+#           backend:
+#             serviceName: kodi
+#             servicePort: 8080
