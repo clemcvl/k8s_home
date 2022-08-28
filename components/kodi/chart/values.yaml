@@ -14,3 +14,15 @@ kodi-headless:
   persistence:
     config:
       enabled: false
+
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+      - host: "kodi.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: emby
+            servicePort: 10148
