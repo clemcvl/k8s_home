@@ -13,4 +13,4 @@
 kodi-headless:
   persistence:
     config:
-      enabled: true
+      enabled: false
