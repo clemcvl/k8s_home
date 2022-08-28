@@ -17,6 +17,7 @@ kodi-headless:
 
   ingress:
     main:
+      enableFixedMiddlewares: false
       enabled: true
       ingressClassName: "traefik"
       hosts:
