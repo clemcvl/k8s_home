@@ -1,7 +1,7 @@
 onechart: 
   image:
     repository: linuxserver/kodi-headless
-    tag: Isengard
+    tag: Leia
   ingress:
     annotations:
       kubernetes.io/ingress.class: traefik
