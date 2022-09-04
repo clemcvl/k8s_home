@@ -1,7 +1,7 @@
 onechart: 
   image:
     repository: linuxserver/kodi-headless
-    tag: Jarvis
+    tag: Isengard
   ingress:
     annotations:
       kubernetes.io/ingress.class: traefik
