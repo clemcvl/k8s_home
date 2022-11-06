@@ -10,6 +10,11 @@ radarr:
           backend:
             serviceName: radarr
             servicePort: 7878
+      tls:
+       - secretName: ingress-tls
+         hosts:
+           - "*.myplayk8s.live"
+
 
   image:
     tag: v4.0.5.5981
