@@ -2,6 +2,9 @@ radarr:
   ingress:
     main:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.tls: "true"
       ingressClassName: "traefik"
       hosts:
       - host: "radarr.myplayk8s.live"
