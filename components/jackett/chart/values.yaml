@@ -2,6 +2,9 @@ jackett:
   ingress:
     main:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.tls: "true"      
       ingressClassName: "traefik"
       hosts:
       - host: "jackett.myplayk8s.live"
@@ -10,7 +13,11 @@ jackett:
           backend:
             serviceName: jackett
             servicePort: 9117
-
+      tls:
+       - secretName: ingress-tls
+         hosts:
+           - "*.myplayk8s.live"
+           
   image:
     tag: latest
 
