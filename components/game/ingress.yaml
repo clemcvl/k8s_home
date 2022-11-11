@@ -1,11 +1,13 @@
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: 2048-ingress
   namespace: game-2048
   annotations:
     kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
   - host: game.myplayk8s.live
@@ -13,5 +15,12 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: service-2048
-          servicePort: 80
+          service:
+            name: service-2048
+            port:
+              number: 80
+        pathType: Prefix
+  tls:
+  - hosts:
+    - "*.myplayk8s.live"
+    secretName: ingress-tls

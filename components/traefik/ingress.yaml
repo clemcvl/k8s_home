@@ -6,6 +6,8 @@ metadata:
   namespace: traefik
   annotations:
     kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
   - host: traefik.myplayk8s.live
@@ -18,3 +20,7 @@ spec:
             name: traefik-dashboard-svc
             port: 
               number: 9000
+  tls:
+    - secretName: ingress-tls
+      hosts:
+        - "*.myplayk8s.live"

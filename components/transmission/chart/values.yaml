@@ -2,6 +2,9 @@ transmission:
   ingress:
     main:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.tls: "true"
       ingressClassName: "traefik"
       hosts:
       - host: "transmission.myplayk8s.live"
@@ -10,7 +13,10 @@ transmission:
           backend:
             serviceName: transmission
             servicePort: 9091
-
+      tls:
+       - secretName: ingress-tls
+         hosts:
+           - "*.myplayk8s.live"
   # image:
   #   tag: v3.0.7.1477
 
