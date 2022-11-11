@@ -4,6 +4,11 @@ kind: Application
 metadata:
   name: pod-gateway
 spec:
+  ignoreDifferences:
+  - group: cert-manager.io
+    kind: Certificate
+    jsonPointers:
+    - /spec/duration
   destination:
     namespace: pod-gateway
     server: https://kubernetes.default.svc
