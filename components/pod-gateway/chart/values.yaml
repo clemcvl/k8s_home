@@ -2,6 +2,7 @@ pod-gateway:
   routed_namespaces:
     - vpn-tester
     - transmission
+    - flaresolverr
 
   settings:
     NOT_ROUTED_TO_GATEWAY_CIDRS: "10.42.0.0/16 10.43.0.0/16"
