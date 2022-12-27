@@ -19,7 +19,7 @@ jackett:
            - "*.myplayk8s.live"
            
   image:
-    tag: v0.20.2444
+    tag: 0.20.2444
 
   persistence:
     config:
