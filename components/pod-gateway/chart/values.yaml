@@ -1,7 +1,6 @@
 pod-gateway:
   routed_namespaces:
     - vpn-tester
-    - transmission
     - flaresolverr
 
   settings:
