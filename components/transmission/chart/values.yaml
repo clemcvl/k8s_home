@@ -18,8 +18,8 @@ transmission:
          hosts:
            - "*.myplayk8s.live"
   image:
-    tag: 3.00-r8-ls149
-    repository: linuxserver/transmission
+    tag: v3.0.7.1477
+    # repository: linuxserver/transmission
   env:
     TZ: UTC
     TRANSMISSION_WEB_HOME: /web
