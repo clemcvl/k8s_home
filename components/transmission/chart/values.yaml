@@ -17,9 +17,9 @@ transmission:
        - secretName: ingress-tls
          hosts:
            - "*.myplayk8s.live"
-  # image:
-  #   tag: v3.0.7.1477
-
+  image:
+    tag: 3.00-r8-ls149
+    repository: linuxserver/transmission
   env:
     TZ: UTC
     TRANSMISSION_WEB_HOME: /web
