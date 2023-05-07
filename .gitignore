@@ -10,6 +10,7 @@ crash.log
 
 **/plex/config/*
 **/transmission/config*/*
+**/qbittorrent/config*/*
 **/radarr/config*/*
 **/sonarr/config*/*
 **/jackett/config*/*

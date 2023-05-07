@@ -67,5 +67,6 @@ variable "records" {
     "iptvparser",
     "emby",
     "kodi",
+    "qbittorrent",
   ]
 }

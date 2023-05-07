@@ -18,6 +18,9 @@ qbittorrent:
          hosts:
            - "*.myplayk8s.live"
 
+  service:
+    bittorrent:
+      enabled: true
 
   image:
     tag: v4.4.2
