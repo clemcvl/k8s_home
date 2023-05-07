@@ -1,0 +1,38 @@
+qbittorrent:
+  ingress:
+    main:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      ingressClassName: "traefik"
+      hosts:
+      - host: "qbittorrent.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: qbittorrent
+            servicePort: 8080
+      tls:
+       - secretName: ingress-tls
+         hosts:
+           - "*.myplayk8s.live"
+
+
+  image:
+    tag: 4.5.2
+
+
+  persistence:
+    config:
+      enabled: true
+      type: hostPath
+      mountPath:  /config
+      hostPath: /home/chevalier/Workspace/k8s_home/components/qbittorrent/config
+    data:
+      enabled: true
+      type: pvc
+      storageClass: nfs
+      accessMode: "ReadWriteMany"
+      size: 400Gi
+
