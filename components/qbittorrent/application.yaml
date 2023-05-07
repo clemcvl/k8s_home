@@ -12,15 +12,9 @@ spec:
     path: components/qbittorrent/chart
     repoURL: https://github.com/clemcvl/k8s_home
     targetRevision: argo_subchart_test
-  sync:
-    comparedTo:
-      destination:
-        namespace: qbittorrent
-        server: https://kubernetes.default.svc
-      source:
-        path: components/argo_subchart/chart
-        repoURL: https://github.com/clemcvl/k8s_home
-        targetRevision: argo_subchart_test
+  destination:
+    namespace: qbittorrent
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
