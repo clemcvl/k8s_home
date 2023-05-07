@@ -20,7 +20,7 @@ qbittorrent:
 
 
   image:
-    tag: 4.5.2
+    tag: v4.4.2
 
 
   persistence:
