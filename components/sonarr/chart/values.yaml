@@ -12,8 +12,8 @@ sonarr:
             servicePort: 8989
 
   image:
-    tag: v3.0.7.1477
-
+    repository: linuxserver/sonarr
+    tag: 4.0.0
 
   persistence:
     config:
