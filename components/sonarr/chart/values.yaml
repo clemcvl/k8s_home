@@ -13,7 +13,7 @@ sonarr:
 
   image:
     repository: linuxserver/sonarr
-    tag: 4.0.0
+    tag: 4.0.0-develop
 
   persistence:
     config:
