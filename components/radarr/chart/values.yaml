@@ -20,7 +20,8 @@ radarr:
 
 
   image:
-    tag: v4.0.5.5981
+    repository: linuxserver/radarr
+    tag: 4.4.4
 
   persistence:
     config:
