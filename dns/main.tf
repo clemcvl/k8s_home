@@ -68,5 +68,6 @@ variable "records" {
     "emby",
     "kodi",
     "qbittorrent",
+    "prowlarr",
   ]
 }
