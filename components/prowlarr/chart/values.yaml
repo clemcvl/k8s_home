@@ -1,0 +1,36 @@
+prowlarr:
+  ingress:
+    main:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.tls: "true"      
+      ingressClassName: "traefik"
+      hosts:
+      - host: "prowlarr.myplayk8s.live"
+        paths:
+        - path: /
+          backend:
+            serviceName: prowlarr
+            servicePort: 9696
+      tls:
+       - secretName: ingress-tls
+         hosts:
+           - "*.myplayk8s.live"
+           
+  image:
+    repository: linuxserver/prowlarr
+    tag: 1.4.1
+
+  persistence:
+    config:
+      enabled: true
+      type: hostPath
+      mountPath:  /config
+      hostPath: /home/chevalier/Workspace/k8s_home/components/prowlarr/config
+    data:
+      enabled: false
+      type: pvc
+      storageClass: nfs
+      accessMode: "ReadWriteMany"
+      size: 400Gi

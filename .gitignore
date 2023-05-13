@@ -14,6 +14,7 @@ crash.log
 **/radarr/config*/*
 **/sonarr/config*/*
 **/jackett/config*/*
+**/prowlarr/config*/*
 
 components/pod-gateway/vpn_secret.yaml
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
