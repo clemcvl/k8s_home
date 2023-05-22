@@ -2,6 +2,9 @@ plex:
   ingress:
     main:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.tls: "true"        
       ingressClassName: "traefik"
       hosts:
       - host: "plex.myplayk8s.live"
@@ -10,6 +13,10 @@ plex:
           backend:
             serviceName: plex
             servicePort: 32400
+      tls:
+       - secretName: ingress-tls
+         hosts:
+           - "*.myplayk8s.live"
 
   image:
     tag: v1.25.6.5577-c8bd13540
