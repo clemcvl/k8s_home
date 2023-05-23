@@ -8,6 +8,10 @@ onechart:
     host: xteve.myplayk8s.live
   containerPort: 34400
 
+  command: "/home/xteve/bin/xteve -port=34400 -config=/home/xteve/conf -debug=3"
+  
+  shell: sh
+
   volumes:
   - hostPath:
       path: /home/chevalier/Workspace/k8s_home/components/xteve/config

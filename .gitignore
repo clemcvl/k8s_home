@@ -15,6 +15,7 @@ crash.log
 **/sonarr/config*/*
 **/jackett/config*/*
 **/prowlarr/config*/*
+**/xteve/config*/*
 
 # Helm dependencies
 **/chart/charts
