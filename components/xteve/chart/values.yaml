@@ -6,7 +6,7 @@ onechart:
     annotations:
       kubernetes.io/ingress.class: traefik
     host: xteve.myplayk8s.live
-  containerPort: 8080
+  containerPort: 34400
 
   volumes:
   - hostPath:
