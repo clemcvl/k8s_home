@@ -1,6 +1,6 @@
 onechart: 
   image:
-    repository: dnsforge/xteve
+    repository: senexcrenshaw/xteve
     tag: latest
   ingress:
     annotations:
@@ -13,7 +13,7 @@ onechart:
       path: /home/chevalier/Workspace/k8s_home/components/xteve/config
       type: DirectoryOrCreate
     name: config
-    path: /config
+    path: /home/xteve/conf/
     existingClaim: true
   resources:
     limits:
