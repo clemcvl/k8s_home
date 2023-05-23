@@ -11,8 +11,9 @@ onechart:
   volumes:
   - hostPath:
       path: /home/chevalier/Workspace/k8s_home/components/xteve/config
-      type: directory
+      type: DirectoryOrCreate
     name: config
+    path: /config
 
 # ####
 
