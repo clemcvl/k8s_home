@@ -19,7 +19,8 @@ plex:
            - "plex.myplayk8s.live"
 
   image:
-    tag: v1.25.6.5577-c8bd13540
+    repository: linuxserver/plex
+    tag: 1.32.2
 
   env:
     # -- Set the container timezone
