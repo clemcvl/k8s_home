@@ -69,5 +69,6 @@ variable "records" {
     "kodi",
     "qbittorrent",
     "prowlarr",
+    "xteve",
   ]
 }
