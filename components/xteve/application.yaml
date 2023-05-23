@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: xteve
+spec:
+  destination:
+    namespace: xteve
+    server: https://kubernetes.default.svc
+  project: k8shome
+  source:
+    path: components/xteve/chart
+    repoURL: https://github.com/clemcvl/k8s_home
+    targetRevision: argo_subchart_test
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

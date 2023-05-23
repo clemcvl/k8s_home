@@ -1,0 +1,42 @@
+onechart: 
+  image:
+    repository: dnsforge/xteve
+    tag: latest
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    host: xteve.myplayk8s.live
+  containerPort: 8080
+
+volumes:
+- hostPath:
+    path: /home/chevalier/Workspace/k8s_home/components/xteve/config
+    type: ""
+  name: config
+
+# ####
+
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   annotations:
+#     pv.kubernetes.io/bind-completed: "yes"
+#     pv.kubernetes.io/bound-by-controller: "yes"
+#     volume.beta.kubernetes.io/storage-provisioner: cluster.local/nfs-nfs-subdir-external-provisioner
+#   labels:
+#     app.kubernetes.io/instance: radarr
+#     app.kubernetes.io/managed-by: Helm
+#     app.kubernetes.io/name: radarr
+#     app.kubernetes.io/version: v3.2.2.5080
+#     argocd.argoproj.io/instance: radarr
+#     helm.sh/chart: radarr-16.0.1
+#   name: radarr-data
+#   namespace: radarr
+# spec:
+#   accessModes:
+#   - ReadWriteMany
+#   resources:
+#     requests:
+#       storage: 400Gi
+#   storageClassName: nfs
+#   volumeName: pvc-9104dd60-4a05-43cd-89e7-047dd08ba283
