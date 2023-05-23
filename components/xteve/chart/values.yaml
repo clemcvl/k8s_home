@@ -21,7 +21,7 @@ onechart:
       memory: 1Gi
     requests:
       cpu: 200m
-      memory: 1Gi    
+      memory: 300Mi    
 # ####
 
 # apiVersion: v1
