@@ -8,11 +8,11 @@ onechart:
     host: xteve.myplayk8s.live
   containerPort: 8080
 
-volumes:
-- hostPath:
-    path: /home/chevalier/Workspace/k8s_home/components/xteve/config
-    type: ""
-  name: config
+  volumes:
+  - hostPath:
+      path: /home/chevalier/Workspace/k8s_home/components/xteve/config
+      type: ""
+    name: config
 
 # ####
 
