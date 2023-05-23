@@ -1,6 +1,6 @@
 onechart: 
   image:
-    repository: dnsforge/xteve
+    repository: senexcrenshaw/xteve
     tag: latest
   ingress:
     annotations:
