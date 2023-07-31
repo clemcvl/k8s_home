@@ -13,7 +13,7 @@ flaresolverr:
 
   image:
     repository: flaresolverr/flaresolverr
-    tag: 3.2.2
+    tag: v3.2.2
 
   persistence:
     config:
