@@ -20,7 +20,7 @@ prowlarr:
            
   image:
     repository: linuxserver/prowlarr
-    tag: 1.8.1
+    tag: version-1.7.4.3769
 
   persistence:
     config:
