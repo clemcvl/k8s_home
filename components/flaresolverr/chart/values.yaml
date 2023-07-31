@@ -13,7 +13,7 @@ flaresolverr:
 
   image:
     repository: ngosang/flaresolverr
-    tag: v3.2.2
+    tag: 3.2.2
 
 
   persistence:
