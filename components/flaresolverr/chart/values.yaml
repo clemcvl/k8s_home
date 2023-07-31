@@ -12,9 +12,8 @@ flaresolverr:
             servicePort: 9117
 
   image:
-    repository: ngosang/flaresolverr
+    repository: flaresolverr/flaresolverr
     tag: 3.2.2
-
 
   persistence:
     config:
