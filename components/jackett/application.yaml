@@ -13,15 +13,6 @@ spec:
     path: components/jackett/chart
     repoURL: https://github.com/clemcvl/k8s_home
     targetRevision: argo_subchart_test
-  sync:
-    comparedTo:
-      destination:
-        namespace: jackett
-        server: https://kubernetes.default.svc
-      source:
-        path: components/argo_subchart/chart
-        repoURL: https://github.com/clemcvl/k8s_home
-        targetRevision: argo_subchart_test
   syncPolicy:
     automated:
       prune: true
