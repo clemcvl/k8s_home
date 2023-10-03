@@ -70,5 +70,6 @@ variable "records" {
     "qbittorrent",
     "prowlarr",
     "xteve",
+    "jellyfin",
   ]
 }

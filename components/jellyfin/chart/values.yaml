@@ -12,7 +12,7 @@ jellyfin:
         - path: /
           backend:
             serviceName: jellyfin
-            servicePort: 8080
+            servicePort: 8096
       tls:
        - secretName: ingress-tls
          hosts:
