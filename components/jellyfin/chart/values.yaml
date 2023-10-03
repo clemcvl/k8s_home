@@ -18,10 +18,6 @@ jellyfin:
          hosts:
            - "*.myplayk8s.live"
 
-  service:
-    bittorrent:
-      enabled: true
-
   image:
     repository: linuxserver/jellyfin
     tag: 10.8.11
